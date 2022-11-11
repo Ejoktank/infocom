@@ -1,21 +1,21 @@
-import "./App.css";
-import logo from './img/logo.svg'
+import "./App.less";
+import logo from "./img/logo.svg";
 
 export function Header() {
   return (
     <header className="header">
-      <div className="container">
+      <div className="container header-container">
         <a href="#" className="logo">
-          <img className="logo-pic" src={ logo } alt="logo" />
+          <img className="logo-pic" src={logo} alt="logo" />
           <span className="logo-text">infocom.</span>
         </a>
         <ul className="menuList">
-          <li className="menuListItem">Продукты</li>
-          <li className="menuListItem">Сервисы</li>
-          <li className="menuListItem">Связаться с менеджером</li>
+          <li className="menuListItem"><a href="#">Продукты</a></li>
+          <li className="menuListItem"><a href="#">Сервисы</a></li>
+          <li className="menuListItem"><a href="#">Связаться с менеджером</a></li>
+          <li><button className="loginBtn">Войти</button></li>
         </ul>
       </div>
-      <button className="loginBtn">Войти</button>
     </header>
   );
 }
