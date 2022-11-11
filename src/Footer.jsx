@@ -3,7 +3,7 @@ import './App.less';
 export function Footer() {
     return (
         <footer className="footer">
-            <div className="container">
+            <div className="container footer-container">
                 <div className="footer-column">
                     <h3 className="footer-subheader">Компания</h3>
                     <ul className="footer_column-list">
@@ -63,7 +63,7 @@ export function Footer() {
                     </ul>
                 </div>
             </div>
-            <div className="container">
+            <div className="container footer_text-container">
                 <div className="footer-text">
                     <p className="copyright">© 2022 Инфоком-НН</p>
                     <p className="coockie">Используем cookies для корректной работы сайта, персонализации пользователей 
