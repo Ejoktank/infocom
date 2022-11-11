@@ -19,16 +19,24 @@ a {
 }
 
 .container {
-  width: 1410px;
+  max-width: 1410px;
   padding-left: 80px;
   padding-right: 80px;
   margin-left: auto;
   margin-right: auto;
+
+ @media (max-width: 1200px) {
+  background-color: aquamarine;
+ }
 }
 
 /* ------ */
 /* HEADER */
 /* ------ */
+
+.header {
+  height: 100px;
+}
 
 .header-container {
   display: flex;
@@ -66,4 +74,32 @@ a {
   font-size: 20px;
   background-color: transparent;
   border-radius: 30px;
+}
+
+/* ------ */
+/* -HERO- */
+/* ------ */
+
+.hero-header {
+  width: 44%;
+  font-size: 64px;
+}
+
+.hero_links-list {
+  max-height: 160px;
+  margin-top: 80px;
+  
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+}
+
+.hero_links_list-item {
+  max-width: 272px;
+  margin-bottom: 26px;
+}
+
+.hero_link {
+  font-size: 20px;
+  border-bottom: 1px solid #A6A6A6;
 }
