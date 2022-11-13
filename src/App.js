@@ -1,15 +1,13 @@
 import "./App.less";
 import { Footer } from "./Footer";
 import { Header } from "./Header";
-import { Hero } from "./Hero";
-import { MainPageCards } from "./MainPageCards";
+import { Main } from "./main/Main";
 
 function App() {
   return (
     <div className="App">
       <Header />
-      <Hero />
-      <MainPageCards />
+      <Main />
       <Footer />
     </div>
   );
