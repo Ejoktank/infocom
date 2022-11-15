@@ -2,6 +2,8 @@
 
 export function Products() {
     return (
-        <div className=""></div>
+        <div className="">
+            <h1>CUM</h1>
+        </div>
     )
 }

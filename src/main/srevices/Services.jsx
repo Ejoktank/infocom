@@ -1,6 +1,8 @@
 
 export function Services() {
     return (
-        <div className=""></div>
+        <div className="">
+            <h1>CUM SERVER</h1>
+        </div>
     )
 }
