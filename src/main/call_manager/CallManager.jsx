@@ -5,6 +5,7 @@ import GameDev from "../../img/game_dev.png";
 import ChatBot from "../../img/chat_bots.png";
 import Web from "../../img/web.png";
 
+import { FormCheckbox } from "./Checkbox/FormCheckbox";
 import { useState } from "react";
 
 const formFields = [
@@ -53,11 +54,11 @@ const formFields = [
 ];
 
 const products = [
-  {name: "No-code", bgc: "#7027F0", image: NoCode},
-  {name: "Мобильная разработка", bgc: "#BC7AFE", image: Mobile},
-  {name: "Гейм дев", bgc: "#F953FD", image: GameDev},
-  {name: "Внедрение чат-ботов", bgc: "#000000", image: ChatBot},
-  {name: "Сайты и web приложения", bgc: "#04001A", image: Web},
+  { name: "No-code", bgc: "#7027F0", image: NoCode },
+  { name: "Мобильная разработка", bgc: "#BC7AFE", image: Mobile },
+  { name: "Гейм дев", bgc: "#F953FD", image: GameDev },
+  { name: "Внедрение чат-ботов", bgc: "#000000", image: ChatBot },
+  { name: "Сайты и web приложения", bgc: "#04001A", image: Web },
 ];
 
 const services = [
@@ -65,7 +66,7 @@ const services = [
   "Lorem ipsum",
   "Lorem ipsum",
   "Lorem ipsum",
-]
+];
 
 export function CallManager() {
   function makeFormField(formField) {
@@ -83,36 +84,62 @@ export function CallManager() {
 
   function makeProductCard(product, i) {
     return (
-      <div className="small_card" style={{backgroundColor: product.bgc}} key={`small-card-${i}`}>
+      <div
+        className="small_card"
+        style={{ backgroundColor: product.bgc }}
+        key={`small-card-${i}`}
+      >
         <div className="small_card-img-container">
           <img src={product.image} alt="product illustration" />
         </div>
         <p className="small_card-text">{product.name}</p>
       </div>
-    )
+    );
   }
 
-  function makeServiceCard(service, i) {
+  function MakeServiceCard(service, i) {
+    const [isChecked, setIsChecked] = useState(false);
+
     return (
-      <div className="service-card" key={`service-card-${i}`}>
-        <label htmlFor="service-check" className="service-label">{service}</label>
-        <input type="checkbox" name="service-check" id={`service-check-${i}`} />
-      </div>
-    )
+      <label className="service-card" key={`service-card-${i}`}>
+        <span className="service-label">{service}</span>
+        <input
+          type="checkbox"
+          onChange={() => {
+            setIsChecked(!isChecked);
+          }}
+          id={`service-check-${i}`}
+        />
+        <svg
+          className={`checkbox ${isChecked ? "checkbox--active" : ""}`}
+          aria-hidden="true"
+          viewBox="0 0 15 11"
+          fill="none"
+        >
+          <path
+            d="M1 4.5L5 9L14 1"
+            strokeWidth="2"
+            stroke={isChecked ? "#fff" : "none"}
+          />
+        </svg>
+      </label>
+    );
   }
 
   return (
     <div className="container call_manager-container">
-      <h1 className="call_manager-header">Связь <br/>с менеджером</h1>
+      <h1 className="call_manager-header">
+        Связь <br />с менеджером
+      </h1>
       <div className="call_manager-hero">
         <h2 className="call_manager-subheader">Укажите интересующий продукт</h2>
         <div className="call_manager-products_and_services">
           <div className="call_manager-products-container">
             {products.map(makeProductCard)}
           </div>
-        <h2 className="call_manager-subheader">или сервис</h2>
+          <h2 className="call_manager-subheader">или сервис</h2>
           <div className="call_manager-services-container">
-            {services.map(makeServiceCard)}
+            {services.map(MakeServiceCard)}
           </div>
         </div>
         <h2 className="call_manager-subheader">Заполните форму</h2>
@@ -131,17 +158,13 @@ export function CallManager() {
             ></textarea>
           </div>
           <div className="form-checkboxes">
-            <div className="form_checkboxes-container check_container-left">
-              <input type="checkbox" name="check-left" id="check-left" />
-              <label htmlFor="check-left">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do  eiusmod tempor incididunt ut labore et dolore  magna aliqua. Ut enim ad minim veniam, quis nostrud  exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</label>
-            </div>
-            <div className="form_checkboxes-container check_container-right">
-              <input type="checkbox" name="check-right" id="check-right" />
-              <label htmlFor="check-right">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do  eiusmod tempor incididunt ut labore et dolore  magna aliqua. Ut enim ad minim veniam, quis nostrud  exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</label>
-            </div>
+            <FormCheckbox />
+            <FormCheckbox />
           </div>
           <div className="submit-btn-container">
-            <button className="form-submit" type="submit">Отправить</button>
+            <button className="form-submit" type="submit">
+              Отправить
+            </button>
           </div>
         </form>
       </div>
