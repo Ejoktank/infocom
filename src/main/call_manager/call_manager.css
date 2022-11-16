@@ -1,3 +1,83 @@
 .call_manager-header {
-    
+  font-weight: 400;
+  font-size: 96px;
+}
+
+.call_manager-subheader {
+  margin-bottom: 25px;
+  font-size: 32px;
+  font-weight: 550;
+}
+
+.call_manager-form-container {
+  display: grid;
+  grid-template-areas:
+    "A Q"
+    "B C"
+    "D E"
+    "F G"
+    "H H"
+    "H H";
+  gap: 10px;
+}
+
+.form-item {
+  width: calc(100% - 40px);
+  height: 20px;
+  padding: 20px;
+
+  background-color: #e8e8e8;
+  font-size: 20px;
+  font-weight: 300;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+
+  border: none;
+  border-radius: 12px;
+}
+
+textarea.form-item {
+  grid-area: H;
+  height: 60px;
+}
+
+.form-checkboxes {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+.form_checkboxes-container {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+}
+
+.form_checkboxes-container label {
+  margin-left: 16px;
+  font-size: 13px;
+  font-weight: 300;
+}
+
+.form_checkboxes-container input {
+  margin-top: 3px;
+  border: 2px solid #000;
+}
+
+.submit-btn-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: end;
+}
+
+.form-submit {
+  margin-top: 70px;
+  padding: 20px 40px;
+
+  color: #fff;
+  background-color: #7027f0;
+  font-size: 20px;
+  border: none;
+  border-radius: 20px;
 }
