@@ -1,13 +1,79 @@
 .call_manager-header {
+  max-width: 650px;
+  text-align: center;
   font-weight: 400;
   font-size: 96px;
 }
 
 .call_manager-subheader {
   margin-bottom: 25px;
+  margin-top: 25px;
   font-size: 32px;
   font-weight: 550;
 }
+
+.call_manager-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.call_manager-hero {
+  margin-top: 140px;
+  padding: 40px 70px;
+  border-radius: 20px;
+  box-shadow: 3px 3px 15px #00000040;
+}
+
+/* SERVICES */
+
+.call_manager-products-container {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 20px;
+}
+
+.small_card-img-container {
+  height: 120px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.small_card {
+  padding: 20px;
+  border-radius: 20px;
+}
+
+.small_card-text {
+  color: #fff;
+  font-size: 20px;
+  font-weight: 550;
+}
+
+.call_manager-services-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+}
+
+.service-card {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 35px 25px;
+
+    border-radius: 20px;
+    box-shadow: 4px 4px 9px 0px #00000021;
+}
+
+.service-label {
+    font-size: 24px;
+    font-weight: 400;
+}
+
+/* FORM */
 
 .call_manager-form-container {
   display: grid;
@@ -46,6 +112,7 @@ textarea.form-item {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 10px;
+  margin-top: 40px;
 }
 
 .form_checkboxes-container {
@@ -68,7 +135,7 @@ textarea.form-item {
 .submit-btn-container {
   display: flex;
   flex-direction: row;
-  justify-content: end;
+  justify-content: flex-end;
 }
 
 .form-submit {
@@ -80,4 +147,8 @@ textarea.form-item {
   font-size: 20px;
   border: none;
   border-radius: 20px;
+
+  &:hover {
+    cursor: pointer;
+  }
 }

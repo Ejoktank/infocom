@@ -1,4 +1,4 @@
-import { NavLink, Routes, Route } from 'react-router-dom';
+import { Routes, Route } from 'react-router-dom';
 import { MainPage } from './main-page/MainPage';
 import { Products } from './products/Products';
 import { Services } from './srevices/Services';

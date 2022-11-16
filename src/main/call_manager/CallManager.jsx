@@ -1,4 +1,11 @@
-import "./call_manager.css";
+import "./call_manager.less";
+import NoCode from "../../img/no_code.png";
+import Mobile from "../../img/mobile.png";
+import GameDev from "../../img/game_dev.png";
+import ChatBot from "../../img/chat_bots.png";
+import Web from "../../img/web.png";
+
+import { useState } from "react";
 
 const formFields = [
   {
@@ -45,6 +52,21 @@ const formFields = [
   },
 ];
 
+const products = [
+  {name: "No-code", bgc: "#7027F0", image: NoCode},
+  {name: "Мобильная разработка", bgc: "#BC7AFE", image: Mobile},
+  {name: "Гейм дев", bgc: "#F953FD", image: GameDev},
+  {name: "Внедрение чат-ботов", bgc: "#000000", image: ChatBot},
+  {name: "Сайты и web приложения", bgc: "#04001A", image: Web},
+];
+
+const services = [
+  "Аудит и консалтинг",
+  "Lorem ipsum",
+  "Lorem ipsum",
+  "Lorem ipsum",
+]
+
 export function CallManager() {
   function makeFormField(formField) {
     return (
@@ -59,12 +81,40 @@ export function CallManager() {
     );
   }
 
+  function makeProductCard(product, i) {
+    return (
+      <div className="small_card" style={{backgroundColor: product.bgc}} key={`small-card-${i}`}>
+        <div className="small_card-img-container">
+          <img src={product.image} alt="product illustration" />
+        </div>
+        <p className="small_card-text">{product.name}</p>
+      </div>
+    )
+  }
+
+  function makeServiceCard(service, i) {
+    return (
+      <div className="service-card" key={`service-card-${i}`}>
+        <label htmlFor="service-check" className="service-label">{service}</label>
+        <input type="checkbox" name="service-check" id={`service-check-${i}`} />
+      </div>
+    )
+  }
+
   return (
-    <div className="container">
-      <h1 className="call_manager-header">Связь с менеджером</h1>
+    <div className="container call_manager-container">
+      <h1 className="call_manager-header">Связь <br/>с менеджером</h1>
       <div className="call_manager-hero">
-        <div className="call_manager-products-container"></div>
-        <div className="call_manager-services-container"></div>
+        <h2 className="call_manager-subheader">Укажите интересующий продукт</h2>
+        <div className="call_manager-products_and_services">
+          <div className="call_manager-products-container">
+            {products.map(makeProductCard)}
+          </div>
+        <h2 className="call_manager-subheader">или сервис</h2>
+          <div className="call_manager-services-container">
+            {services.map(makeServiceCard)}
+          </div>
+        </div>
         <h2 className="call_manager-subheader">Заполните форму</h2>
         <form className="call_manager-form" action="#" method="post">
           <div className="call_manager-form-container">

@@ -1,8 +1,8 @@
-import { Switch, Route, Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import "./App.less";
 import logo from "./img/logo.svg";
 import burger from "./img/burger.svg"
-import { useEffect, createRef } from 'react';
+import { createRef } from 'react';
 
 export function Header() {
 
