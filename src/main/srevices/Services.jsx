@@ -2,7 +2,7 @@
 export function Services() {
     return (
         <div className="">
-            <h1>CUM SERVER</h1>
+            <h1>SERVICES</h1>
         </div>
     )
 }

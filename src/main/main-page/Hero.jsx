@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import './App.less';
+import './main_page.less';
 
 export function Hero() {
     return (

@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
-import "./App.less";
-import logo from "./img/logo.svg";
-import burger from "./img/burger.svg"
+import "./header.less";
+import logo from "../img/logo.svg";
+import burger from "../img/burger.svg"
 import { createRef } from 'react';
 
 export function Header() {

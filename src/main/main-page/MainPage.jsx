@@ -1,5 +1,5 @@
-import { Hero } from "../../Hero";
-import { MainPageCards } from "../../MainPageCards";
+import { Hero } from "./Hero";
+import { MainPageCards } from "./MainPageCards";
 
 export function MainPage() {
   return (
