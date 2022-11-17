@@ -82,10 +82,15 @@ export function CallManager() {
     );
   }
 
-  function makeProductCard(product, i) {
+  function MakeProductCard(product, i) {
+    const [isChecked, setIsChecked] = useState(false);
+
     return (
       <div
-        className="small_card"
+        className={`small_card ${isChecked ? "small_card--active" : ""}`}
+        onClick={() => {
+          setIsChecked(!isChecked);
+        }}
         style={{ backgroundColor: product.bgc }}
         key={`small-card-${i}`}
       >
@@ -135,7 +140,7 @@ export function CallManager() {
         <h2 className="call_manager-subheader">Укажите интересующий продукт</h2>
         <div className="call_manager-products_and_services">
           <div className="call_manager-products-container">
-            {products.map(makeProductCard)}
+            {products.map(MakeProductCard)}
           </div>
           <h2 className="call_manager-subheader">или сервис</h2>
           <div className="call_manager-services-container">
