@@ -1,4 +1,5 @@
-import { Hero } from "./Hero";
+import { Hero } from "./hero/Hero";
+import { HeroLinksMobile } from "./hero/HeroLinksMobile";
 import { MainPageCards } from "./MainPageCards";
 
 export function MainPage() {
@@ -6,6 +7,7 @@ export function MainPage() {
     <div className="">
       <Hero />
       <MainPageCards />
+      <HeroLinksMobile />
     </div>
   );
 }

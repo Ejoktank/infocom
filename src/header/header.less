@@ -1,4 +1,6 @@
-@max1080: ~'(max-width: 1080px)';
+@max1080: ~"(max-width: 1080px)";
+@max768: ~"(max-width: 768px)";
+@max375: ~"(max-width: 375px)";
 
 .header {
   height: 100px;
@@ -18,6 +20,16 @@
 .logo {
   display: flex;
   align-items: center;
+
+  @media @max768 {
+    img {
+      width: 40px;
+    }
+
+    span {
+      font-size: 24px;
+    }
+  }
 }
 
 .menuList {
@@ -36,7 +48,7 @@
 }
 
 .menuListItem {
-  margin-right: 60px;
+  margin-right: 47px;
   font-weight: 700;
   font-size: 20px;
 }
@@ -56,6 +68,12 @@
 
   @media @max1080 {
     display: block;
+  }
+
+  @media @max768 {
+    img {
+      width: 30px;
+    }
   }
 }
 
@@ -80,13 +98,37 @@
   z-index: 100;
 
   transition: ease-in-out 0.3s;
+
+  @media @max768 {
+    padding: 26px 40px;
+    font-size: 26px;
+  }
+  
+  @media @max375 {
+    padding: 20px 30px;
+    font-size: 20px;
+  }
 }
 
 .burger-close {
   background-color: transparent;
   border: none;
+
+  @media @max768 {
+    img {
+      width: 30px;
+    }
+  }
 }
 
 .burger_menu_list-item {
   margin-bottom: 48px;
+
+  @media @max768 {
+    margin-bottom: 32px;
+  }
+
+  @media @max375 {
+    margin-bottom: 20px;
+  }
 }
