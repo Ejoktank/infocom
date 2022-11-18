@@ -1,4 +1,4 @@
-import "./main_page.less";
+import "./MainPage.less";
 import Im1 from "../../img/Rect.svg";
 import Im2 from "../../img/Ellipse.svg";
 import Im3 from "../../img/Polygon.svg";
@@ -22,10 +22,8 @@ export function MainPageCards() {
 
   return (
     <section className="main_page-cards">
-      <div className="container">
-        <div className="cards-container">
-          {cardsContent.map(createCard)}
-        </div>
+      <div className="container cards-container">
+        {cardsContent.map(createCard)}
       </div>
     </section>
   );

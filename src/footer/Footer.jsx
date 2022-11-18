@@ -63,17 +63,17 @@ const footerLinks = [
 ];
 
 export function Footer() {
-  function makeLink(link) {
+  function makeLink(link, i) {
     return (
-      <li>
+      <li key={`link-${i}`}>
         <Link href={`${link.href}`}>{link.linkName}</Link>
       </li>
     );
   }
 
-  function makeLinksColumn(linksColumn) {
+  function makeLinksColumn(linksColumn, i) {
     return (
-      <div className="footer-column">
+      <div className="footer-column" key={`linksColumn-${i}`}>
         <h3 className="footer-subheader">{linksColumn.colName}</h3>
         <ul className="footer_column-list">
           {linksColumn.linksList.map(makeLink)}

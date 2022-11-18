@@ -8,10 +8,10 @@ export function Header() {
 
   const stork = createRef();
   function openBurger() {
-    console.log(stork.current.classList.add('left-0'));
+    stork.current.classList.add('bugrer--appear');
   }
   function closeBurger() {
-    console.log(stork.current.classList.remove('left-0'));
+    stork.current.classList.remove('bugrer--appear');
   }
 
   return (
