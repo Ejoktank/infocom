@@ -30,7 +30,11 @@ export function Header() {
 
   function makeBurgerLink(link, i) {
     return (
-      <li className="burger_menu_list-item" key={`burgerLink-${i}`}>
+      <li className="burger_menu_list-item" key={`burgerLink-${i}`} 
+        onClick={() => {
+          document.getElementsByClassName("burger")[0].classList.remove("burger--active");
+          document.getElementsByClassName("burger-menu")[0].classList.remove("bugrer--appear");
+        }}>
         <Link to={`${link.href}`} className="burger-link">{link.name}</Link>
       </li>
     );
@@ -63,7 +67,11 @@ export function Header() {
         <button onClick={toggleBurger} className="burger" id="burger-open">
           <span className='burger-lines'></span>
         </button>
-        <div ref={stork} className="burger-menu">
+        <div ref={stork} onClick={(e) => {
+              e.nativeEvent.target.classList.remove("bugrer--appear");
+              document.getElementsByClassName("burger")[0].classList.remove("burger--active");
+            }} 
+            className="burger-menu">
           <ul className="burger_menu-list">
             {headerNavLinks.map(makeBurgerLink)}
           </ul>

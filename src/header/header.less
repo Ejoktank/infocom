@@ -11,6 +11,8 @@
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
+
+  transition: ease-in-out 0.3s;
 }
 
 .logo-text {
@@ -74,6 +76,8 @@
   border: none;
   z-index: 30;
 
+  transition: ease-in-out 0.3s;
+
   &:hover {
     .burger-lines {
       opacity: .66;
@@ -136,6 +140,8 @@
   height: 4px;
   background-color: #000;
   border-radius: 2px;
+
+  transition: ease-in-out 0.3s;
 }
 
 .burger-lines {
@@ -160,12 +166,12 @@
 
   &::before {
     top: 0;
-    transform: rotate(45deg);
+    transform: rotate(135deg);
   }
 
   &::after {
     top: 0;
-    transform: rotate(-45deg);
+    transform: rotate(-135deg);
   }
 }
 
