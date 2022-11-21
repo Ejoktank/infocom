@@ -1,31 +1,32 @@
-/* --------- */ 
+/* --------- */
 /* VARIABLES */
-/* --------- */ 
+/* --------- */
 
-@max1080: ~'(max-width: 1080px)';
-@max768: ~'(max-width: 768px)';
-@max500: ~'(max-width: 500px)';
-@max375: ~'(max-width: 375px)';
-
+@max1080: ~"(max-width: 1080px)";
+@max768: ~"(max-width: 768px)";
+@max500: ~"(max-width: 500px)";
+@max375: ~"(max-width: 375px)";
 
 #cardsColors() {
-  first: #7027F0;
-  second: #BC7AFE;
-  third: #F953FD;
+  first: #7027f0;
+  second: #bc7afe;
+  third: #f953fd;
 }
 
-/* -------- */ 
+/* -------- */
 /* -COMMON- */
-/* -------- */ 
+/* -------- */
 
-*, *::before, *::after {
+*,
+*::before,
+*::after {
   box-sizing: inherit;
   padding: 0;
   margin: 0;
 }
 
 body {
-  padding-top: 20px;
+  // padding-top: 20px;
   padding-bottom: 30px;
   overflow-x: hidden;
 }
@@ -52,15 +53,18 @@ button {
 .container {
   max-width: 1100px;
   min-width: 224px;
-  padding-left: 80px;
-  padding-right: 80px;
+  padding: 20px 80px;
   margin-left: auto;
   margin-right: auto;
 
- @media @max768 {
-    padding-left: 40px;
-    padding-right: 40px;
- }
+  @media @max768 {
+    padding: 26px 60px;
+  }
+
+  @media @max375 {
+    padding: 20px 30px;
+    font-size: 20px;
+  }
 }
 
 .d-block {

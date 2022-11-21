@@ -34,6 +34,7 @@ export function Header() {
         onClick={() => {
           document.getElementsByClassName("burger")[0].classList.remove("burger--active");
           document.getElementsByClassName("burger-menu")[0].classList.remove("bugrer--appear");
+          document.getElementById("body").classList.remove("overflowY-hidden");
         }}>
         <Link to={`${link.href}`} className="burger-link">{link.name}</Link>
       </li>
@@ -43,7 +44,6 @@ export function Header() {
   const stork = createRef();
   function toggleBurger(e) {
     stork.current.classList.toggle('bugrer--appear');
-    console.log(e.nativeEvent.path);
     e.nativeEvent.path.map((element) => {
       if (element.id === "burger-open") {
         element.classList.toggle("burger--active")
@@ -70,8 +70,9 @@ export function Header() {
         <div ref={stork} onClick={(e) => {
               e.nativeEvent.target.classList.remove("bugrer--appear");
               document.getElementsByClassName("burger")[0].classList.remove("burger--active");
+              document.getElementById("body").classList.remove("overflowY-hidden");
             }} 
-            className="burger-menu">
+            className="container burger-menu">
           <ul className="burger_menu-list">
             {headerNavLinks.map(makeBurgerLink)}
           </ul>
