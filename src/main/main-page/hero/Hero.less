@@ -4,6 +4,7 @@
 
 @max1080: ~'(max-width: 1080px)';
 @max768: ~'(max-width: 768px)';
+@max500: ~'(max-width: 500px)';
 @max375: ~'(max-width: 375px)';
 
 /* ------ */
@@ -20,6 +21,10 @@
 
   @media @max768 {
     font-size: 48px;
+  }
+
+  @media @max500 {
+    font-size: 40px;
   }
 
   @media @max375 {
@@ -73,13 +78,28 @@
 
     :not(:last-child) {
         border-bottom: 1px solid #A5A5A580;
-        
+    }
+
+    @media @max768 {
+        border-radius: 30px;
+      }
+    
+    @media @max375 {
+        border-radius: 20px;
     }
 }
 
 .m_hero_links_list-item {
     display: block;
     padding: 36px 48px;
+
+    @media @max768 {
+        padding: 24px 32px;
+    }
+
+    @media @max375 {
+        padding: 16px 24px;
+    }
 }
 
 .m_hero_link {
@@ -91,5 +111,24 @@
 
     &::after {
         content: url(../../../img/arrow.svg);
+        margin-left: 30px;
+    }
+
+    @media @max768 {
+        font-size: 24px;
+
+        &::after {
+            content: url(../../../img/arrow_less.svg);
+            margin-left: 30px;
+        }
+    }
+
+    @media @max500 {
+        font-size: 18px;
+
+        &::after {
+            content: url(../../../img/arrow_little.svg);
+            margin-left: 30px;
+        }
     }
 }

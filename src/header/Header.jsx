@@ -1,17 +1,53 @@
-import { Link } from 'react-router-dom';
 import "./Header.less";
-import logo from "../img/logo.svg";
-import burger from "../img/burger.svg"
+import { Link } from 'react-router-dom';
 import { createRef } from 'react';
+import logo from "../img/logo.svg";
+
+const headerNavLinks = [
+  {href: "/products", name: "Продукты"},
+  {href: "/services", name: "Сервисы"},
+  {href: "/call-manager", name: "Связаться с менеджером"},
+  {href: "/", name: "Войти"},
+]
 
 export function Header() {
 
-  const stork = createRef();
-  function openBurger() {
-    stork.current.classList.add('bugrer--appear');
+  function makeHeaderLink(link, i) {
+    if (link.name !== "Войти") {
+      return (
+        <li className="menuListItem" key={`headerLink-${i}`}>
+          <Link to={`${link.href}`}>{link.name}</Link>
+        </li>
+      );
+    } else {
+      return (
+        <li className="menuListItem loginBtn" key={`headerLink-${i}`}>
+          <Link to={`${link.href}`}>{link.name}</Link>
+        </li>
+      );
+    }
   }
-  function closeBurger() {
-    stork.current.classList.remove('bugrer--appear');
+
+  function makeBurgerLink(link, i) {
+    return (
+      <li className="burger_menu_list-item" key={`burgerLink-${i}`}>
+        <Link to={`${link.href}`} className="burger-link">{link.name}</Link>
+      </li>
+    );
+  }
+
+  const stork = createRef();
+  function toggleBurger(e) {
+    stork.current.classList.toggle('bugrer--appear');
+    console.log(e.nativeEvent.path);
+    e.nativeEvent.path.map((element) => {
+      if (element.id === "burger-open") {
+        element.classList.toggle("burger--active")
+      }
+      if (element.constructor === HTMLBodyElement) {
+        element.classList.toggle("overflowY-hidden");
+      }
+    });
   }
 
   return (
@@ -22,20 +58,15 @@ export function Header() {
           <span className="logo-text">infocom.</span>
         </Link>
         <ul className="menuList">
-          <li className="menuListItem"><Link to='/products'>Продукты</Link></li>
-          <li className="menuListItem"><Link to='/services'>Сервисы</Link></li>
-          <li className="menuListItem"><Link to='/call-manager'>Связаться с менеджером</Link></li>
-          <li><button className="loginBtn">Войти</button></li>
+          {headerNavLinks.map(makeHeaderLink)}
         </ul>
-        <button onClick={openBurger} className="burger" id="burger-open"><img src={burger} alt="burger" /></button>
+        <button onClick={toggleBurger} className="burger" id="burger-open">
+          <span className='burger-lines'></span>
+        </button>
         <div ref={stork} className="burger-menu">
           <ul className="burger_menu-list">
-            <li className="burger_menu_list-item"><Link to='/products' className="burger-link">Продукты</Link></li>
-            <li className="burger_menu_list-item"><Link to='/services' className="burger-link">Сервисы</Link></li>
-            <li className="burger_menu_list-item"><Link to='/call-manager' className="burger-link">Связаться с менеджером</Link></li>
-            <li className="burger_menu_list-item"><Link to='/' className="burger-link">Войти</Link></li>
+            {headerNavLinks.map(makeBurgerLink)}
           </ul>
-          <button onClick={closeBurger} className="burger-close" id="burger-close"><img src={burger} alt="burger" /></button>
         </div>
       </div>
     </header>

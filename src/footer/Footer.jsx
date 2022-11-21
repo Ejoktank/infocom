@@ -82,10 +82,19 @@ export function Footer() {
     );
   }
 
+  function makeLinksDropdown(linksColumn, i) {
+    return (
+      <div className=""></div>
+    )
+  }
+
   return (
     <footer className="footer">
       <div className="container footer-container">
         {footerLinks.map(makeLinksColumn)}
+      </div>
+      <div className="container m_footer-container">
+
       </div>
       <div className="container footer_text-container">
         <div className="footer-text">
