@@ -66,7 +66,7 @@ export function Footer() {
   function makeLink(link, i) {
     return (
       <li key={`link-${i}`}>
-        <Link href={`${link.href}`}>{link.linkName}</Link>
+        <Link href={`${link.href}`} className="footer_column-link">{link.linkName}</Link>
       </li>
     );
   }
@@ -82,9 +82,14 @@ export function Footer() {
     );
   }
 
-  function makeLinksDropdown(linksColumn, i) {
+  function makeLinksDropdown(linksBlock, i) {
     return (
-      <div className=""></div>
+      <div className="dropdown-column" key={`linksDropdown-${i}`}>
+        <h3 className="dropdown-column_name">{linksBlock.colName}</h3>
+        <ul className="dropdown-links_list">
+          {linksBlock.linksList.map(makeLink)}
+        </ul>
+      </div>
     )
   }
 
@@ -94,7 +99,7 @@ export function Footer() {
         {footerLinks.map(makeLinksColumn)}
       </div>
       <div className="container m_footer-container">
-
+        {footerLinks.map(makeLinksDropdown)}
       </div>
       <div className="container footer_text-container">
         <div className="footer-text">

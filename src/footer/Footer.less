@@ -1,11 +1,11 @@
-/* --------- */ 
+/* --------- */
 /* VARIABLES */
-/* --------- */ 
+/* --------- */
 
-@max1080: ~'(max-width: 1080px)';
-@max768: ~'(max-width: 768px)';
-@max500: ~'(max-width: 500px)';
-@max375: ~'(max-width: 375px)';
+@max1080: ~"(max-width: 1080px)";
+@max768: ~"(max-width: 768px)";
+@max500: ~"(max-width: 500px)";
+@max375: ~"(max-width: 375px)";
 
 // --------
 // -FOOTER-
@@ -20,16 +20,120 @@
   grid-template-columns: repeat(6, 1fr);
   column-gap: 30px;
   margin-bottom: 30px;
+
+  @media @max1080 {
+    display: none;
+  }
+}
+
+.m_footer-container {
+  display: none;
+
+  @media @max1080 {
+    display: block;
+  }
+}
+
+.dropdown-column {
+  padding-left: 48px;
+  margin-bottom: 100px;
+
+  transition-duration: .3s;
+
+  @media @max768 {
+    padding-left: 40px;
+    margin-bottom: 80px;
+  }
+
+  @media @max500 {
+    padding-left: 30px;
+    margin-bottom: 60px;
+  }
+
+  @media @max375 {
+    padding-left: 24px;
+    margin-bottom: 40px;
+  }
 }
 
 .footer-subheader {
   margin-bottom: 20px;
 }
 
+.dropdown-column_name {
+  position: relative;
+  margin-bottom: 50px;
+  font-size: 50px;
+  font-weight: 550;
+
+  @media @max768 {
+    margin-bottom: 40px;
+    font-size: 40px;
+  }
+
+  @media @max500 {
+    margin-bottom: 30px;
+    font-size: 30px;
+  }
+
+  @media @max375 {
+    margin-bottom: 24px;
+    font-size: 24px;
+  }
+
+  &::before {
+    content: url(../img/arrow_dd-big.svg);
+    display: inline-block;
+    position: absolute;
+    left: -44px;
+    top: 0;
+    transform: rotate(-90deg);
+
+    @media @max768 {
+      content: url(../img/arrow_dd-medium.svg);
+      left: -36px;
+    }
+
+    @media @max500 {
+      content: url(../img/arrow_dd-less.svg);
+      left: -26px;
+    }
+
+    @media @max500 {
+      content: url(../img/arrow_dd-little.svg);
+      left: -22px;
+    }
+  }
+}
+
 .footer_column-link {
   font-weight: 500;
   font-size: 13px;
   color: #a6a6a6;
+}
+
+.dropdown-links_list {
+  .footer_column-link {
+    display: inline-block;
+    margin-bottom: 20px;
+    color: #000;
+    font-size: 50px;
+    font-weight: 300;
+
+    @media @max768 {
+      font-size: 40px;
+      margin-bottom: 14px;
+    }
+
+    @media @max500 {
+      font-size: 30px;
+      margin-bottom: 8px;
+    }
+
+    @media @max375 {
+      font-size: 24px;
+    }
+  }
 }
 
 .footer_text-container {
