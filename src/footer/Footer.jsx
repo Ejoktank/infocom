@@ -86,20 +86,23 @@ export function Footer() {
   }
 
   function makeLinksDropdown(linksBlock, i) {
+
+    function toggleDropdown(event) {
+      event.nativeEvent.path.map((elem) => {
+        if (elem.className === "dropdown-column") {
+          elem
+            .getElementsByClassName("dropdown-links_list")[0]
+            .classList.toggle("d-block");
+          elem
+            .getElementsByClassName("dropdown-column_name")[0]
+            .classList.toggle("dropdown-open");
+        }
+      });
+    }
     return (
-      <div
-        onClick={(e) => {
-          e.nativeEvent.path.map((elem) => {
-            if (elem.className === "dropdown-column") {
-              elem
-                .getElementsByClassName("dropdown-links_list")[0]
-                .classList.toggle("d-block");
-              elem
-                .getElementsByClassName("dropdown-column_name")[0]
-                .classList.toggle("dropdown-open");
-            }
-          });
-        }}
+      <div 
+        onClick={toggleDropdown}
+        onTouchMove={toggleDropdown}
         className="dropdown-column"
         key={`linksDropdown-${i}`}
       >
