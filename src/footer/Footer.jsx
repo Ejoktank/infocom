@@ -1,15 +1,16 @@
 import { Link } from "react-router-dom";
 import "./Footer.less";
+import {Products} from "../main/products/Products";
 
 const footerLinks = [
   {
     colName: "Компания",
     linksList: [
       { linkName: "Об Инфоком-НН", href: "#" },
-      { linkName: "Команда", href: "#" },
-      { linkName: "Стать партнёром", href: "#" },
-      { linkName: "Карьера", href: "#" },
-      { linkName: "Социальная ответственность", href: "#" },
+      { linkName: "Команда", href: Products },
+      { linkName: "Стать партнёром", href: "https://codepen.io/alvarotrigo/pen/bGvmJoN?editors=1100" },
+      { linkName: "Карьера", href: "../main/products/Products" },
+      { linkName: "Социальная ответственность", href: "/products" },
       { linkName: "Контакты", href: "#" },
     ],
   },
@@ -66,7 +67,9 @@ export function Footer() {
   function makeLink(link, i) {
     return (
       <li key={`link-${i}`}>
-        <Link href={`${link.href}`} className="footer_column-link">{link.linkName}</Link>
+        <Link href={`${link.href}`} className="footer_column-link">
+          {link.linkName}
+        </Link>
       </li>
     );
   }
@@ -84,13 +87,28 @@ export function Footer() {
 
   function makeLinksDropdown(linksBlock, i) {
     return (
-      <div className="dropdown-column" key={`linksDropdown-${i}`}>
+      <div
+        onClick={(e) => {
+          e.nativeEvent.path.map((elem) => {
+            if (elem.className === "dropdown-column") {
+              elem
+                .getElementsByClassName("dropdown-links_list")[0]
+                .classList.toggle("d-block");
+              elem
+                .getElementsByClassName("dropdown-column_name")[0]
+                .classList.toggle("dropdown-open");
+            }
+          });
+        }}
+        className="dropdown-column"
+        key={`linksDropdown-${i}`}
+      >
         <h3 className="dropdown-column_name">{linksBlock.colName}</h3>
         <ul className="dropdown-links_list">
           {linksBlock.linksList.map(makeLink)}
         </ul>
       </div>
-    )
+    );
   }
 
   return (

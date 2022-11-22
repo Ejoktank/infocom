@@ -109,7 +109,8 @@ export function CallManager() {
       <label className="service-card" key={`service-card-${i}`}>
         <span className="service-label">{service}</span>
         <input
-          type="checkbox"
+          type="radio"
+          name="radio-228"
           onChange={() => {
             setIsChecked(!isChecked);
           }}

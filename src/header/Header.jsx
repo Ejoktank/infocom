@@ -64,7 +64,7 @@ export function Header() {
         <ul className="menuList">
           {headerNavLinks.map(makeHeaderLink)}
         </ul>
-        <button onClick={toggleBurger} className="burger" id="burger-open">
+        <button onClick={toggleBurger} onTouchStart={toggleBurger} className="burger" id="burger-open">
           <span className='burger-lines'></span>
         </button>
         <div ref={stork} onClick={(e) => {
