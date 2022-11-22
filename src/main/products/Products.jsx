@@ -7,10 +7,10 @@ import p5 from "../../img/tag-5.png";
 
 const tags = [
   { name: "Первый тег", pic: p1 },
-  { name: "Второй тег", pic: p2},
-  { name: "Третий длинный тег", pic: p3},
-  { name: "Четвёртый тег", pic: p4},
-  { name: "Пятый тег", pic: p5},
+  { name: "Второй длинный тег", pic: p2 },
+  { name: "Третий тег", pic: p3 },
+  { name: "Четвёртый тег", pic: p4 },
+  { name: "Пятый тег", pic: p5 },
 ];
 
 export function Products() {
@@ -25,7 +25,7 @@ export function Products() {
 
   return (
     <div className="container">
-      <h1 className="product-header">Название продукта</h1>
+      <h1 className="hero-header product-header">Название продукта</h1>
       <p className="product-text">
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius et
         delectus id veniam doloribus minima ex autem, aspernatur voluptates odio
