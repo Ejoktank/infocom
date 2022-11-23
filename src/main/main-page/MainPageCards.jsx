@@ -13,9 +13,9 @@ export function MainPageCards() {
 
   function createCard(cardContent, i) {
     return (
-      <div className="card" style={{backgroundImage: `url(${cardContent.bgImg})`, backgroundColor: cardContent.bgColor}} key={i}>
-        <div className="card_subheader">{cardContent.subheader}</div>
-        <div className="card_header">{cardContent.header}</div>
+      <div className="card" style={{backgroundImage: `url(${cardContent.bgImg})`, backgroundColor: cardContent.bgColor}} id={`hero_card-${i}`} key={`hero_card-${i}`}>
+        <h4 className="card_subheader">{cardContent.subheader}</h4>
+        <p className="card_header">{cardContent.header}</p>
       </div>
     )
   }
