@@ -12,6 +12,17 @@ const headerNavLinks = [
 
 export function Header() {
 
+  const stork = createRef();
+
+  function toggleBurger(meth) {
+
+    return function () {
+      stork.current.classList[meth]('bugrer--appear');
+      document.getElementById("burger-open").classList[meth]("burger--active");
+      document.body.classList[meth]("overflowY-hidden");
+    }
+  }
+
   function makeHeaderLink(link, i) {
     if (link.name !== "Войти") {
       return (
@@ -31,26 +42,10 @@ export function Header() {
   function makeBurgerLink(link, i) {
     return (
       <li className="burger_menu_list-item" key={`burgerLink-${i}`} 
-        onClick={() => {
-          document.getElementsByClassName("burger")[0].classList.remove("burger--active");
-          document.getElementsByClassName("burger-menu")[0].classList.remove("bugrer--appear");
-          document.getElementById("body").classList.remove("overflowY-hidden");
-        }}>
+        onClick={toggleBurger("remove")}>
         <Link to={`${link.href}`} className="burger-link">{link.name}</Link>
       </li>
     );
-  }
-
-  const stork = createRef();
-  function toggleBurger(e) {
-    stork.current.classList.toggle('bugrer--appear');
-    for (const element of e.nativeEvent.composedPath()) {
-      if (element.id === "burger-open") {
-        element.classList.toggle("burger--active")
-        document.body.classList.toggle("overflowY-hidden");
-        break;
-      }
-    }
   }
 
   return (
@@ -63,14 +58,10 @@ export function Header() {
         <ul className="menuList">
           {headerNavLinks.map(makeHeaderLink)}
         </ul>
-        <button onClick={toggleBurger} className="burger" id="burger-open">
+        <button onClick={toggleBurger("toggle")} className="burger" id="burger-open">
           <span className='burger-lines'></span>
         </button>
-        <div ref={stork} onClick={(e) => {
-              e.nativeEvent.target.classList.remove("bugrer--appear");
-              document.getElementsByClassName("burger")[0].classList.remove("burger--active");
-              document.getElementById("body").classList.remove("overflowY-hidden");
-            }} 
+        <div ref={stork} onClick={toggleBurger("remove")} 
             className="container burger-menu">
           <ul className="burger_menu-list">
             {headerNavLinks.map(makeBurgerLink)}
