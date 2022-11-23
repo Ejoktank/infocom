@@ -116,27 +116,20 @@ export function CallManager() {
           }}
           id={`service-check-${i}`}
         />
-        <svg
-          className={`checkbox ${isChecked ? "checkbox--active" : ""}`}
-          aria-hidden="true"
-          viewBox="0 0 15 11"
-          fill="none"
-        >
-          <path
-            d="M1 4.5L5 9L14 1"
-            strokeWidth="2"
-            stroke={isChecked ? "#fff" : "none"}
-          />
+        <svg className={`checkbox ${isChecked ? "checkbox--active" : ""}`} aria-hidden="true" viewBox="0 0 15 11" fill="none" >
+          <path d="M1 4.5L5 9L14 1" strokeWidth="2" stroke={isChecked ? "#fff" : "none"} />
         </svg>
       </label>
     );
   }
 
   return (
-    <div className="container call_manager-container">
+    <section className="section-call_manager">
+      <div className="container call_manager-container">
       <h1 className="call_manager-header">
         Связь <br />с менеджером
       </h1>
+      </div>
       <div className="call_manager-hero">
         <h2 className="call_manager-subheader">Укажите интересующий продукт</h2>
         <div className="call_manager-products_and_services">
@@ -156,12 +149,7 @@ export function CallManager() {
             {formFields.map((formField) => {
               if (formField.name !== "email") return makeFormField(formField);
             })}
-            <textarea
-              name="textarea"
-              id="form-textarea"
-              className="form-item"
-              placeholder="Подробности о вашем проекте"
-            ></textarea>
+            <textarea name="textarea" id="form-textarea" className="form-item" placeholder="Подробности о вашем проекте" ></textarea>
           </div>
           <div className="form-checkboxes">
             <FormCheckbox />
@@ -174,6 +162,6 @@ export function CallManager() {
           </div>
         </form>
       </div>
-    </div>
+    </section>
   );
 }

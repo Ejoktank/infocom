@@ -102,7 +102,6 @@ export function Footer() {
     return (
       <div 
         onClick={toggleDropdown}
-        onTouchMove={toggleDropdown}
         className="dropdown-column"
         key={`linksDropdown-${i}`}
       >
