@@ -44,14 +44,13 @@ export function Header() {
   const stork = createRef();
   function toggleBurger(e) {
     stork.current.classList.toggle('bugrer--appear');
-    e.nativeEvent.path.map((element) => {
+    for (const element of e.nativeEvent.composedPath()) {
       if (element.id === "burger-open") {
         element.classList.toggle("burger--active")
+        document.body.classList.toggle("overflowY-hidden");
+        break;
       }
-      if (element.constructor === HTMLBodyElement) {
-        element.classList.toggle("overflowY-hidden");
-      }
-    });
+    }
   }
 
   return (
@@ -64,7 +63,7 @@ export function Header() {
         <ul className="menuList">
           {headerNavLinks.map(makeHeaderLink)}
         </ul>
-        <button onClick={toggleBurger} onTouchMove={toggleBurger} className="burger" id="burger-open">
+        <button onClick={toggleBurger} className="burger" id="burger-open">
           <span className='burger-lines'></span>
         </button>
         <div ref={stork} onClick={(e) => {

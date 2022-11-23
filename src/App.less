@@ -26,7 +26,6 @@
 }
 
 body {
-  // padding-top: 20px;
   padding-bottom: 30px;
   overflow-x: hidden;
 }
@@ -47,6 +46,28 @@ a {
 button {
   &:hover {
     cursor: pointer;
+  }
+}
+
+.section-header {
+  min-height: fit-content;
+  font-size: 64px;
+  transition: ease-in-out .3s;
+
+  @media @max1080 {
+    width: auto;
+  }
+
+  @media @max768 {
+    font-size: 48px;
+  }
+
+  @media @max500 {
+    font-size: 40px;
+  }
+
+  @media @max375 {
+    font-size: 32px;
   }
 }
 
@@ -81,4 +102,12 @@ button {
 
 .fsz-48 {
   font-size: 48px !important;
+}
+
+.p-24 {
+  padding: 0 24px;
+
+  @media @max500 {
+    padding: 0 16px;
+  }
 }

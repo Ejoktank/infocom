@@ -1,15 +1,14 @@
 import { Link } from "react-router-dom";
 import "./Footer.less";
-import {Products} from "../main/products/Products";
 
 const footerLinks = [
   {
     colName: "Компания",
     linksList: [
       { linkName: "Об Инфоком-НН", href: "#" },
-      { linkName: "Команда", href: Products },
-      { linkName: "Стать партнёром", href: "https://codepen.io/alvarotrigo/pen/bGvmJoN?editors=1100" },
-      { linkName: "Карьера", href: "../main/products/Products" },
+      { linkName: "Команда", href: "#" },
+      { linkName: "Стать партнёром", href: "#" },
+      { linkName: "Карьера", href: "#" },
       { linkName: "Социальная ответственность", href: "/products" },
       { linkName: "Контакты", href: "#" },
     ],
@@ -65,9 +64,10 @@ const footerLinks = [
 
 export function Footer() {
   function makeLink(link, i) {
+    console.log(link.href);
     return (
       <li key={`link-${i}`}>
-        <Link href={`${link.href}`} className="footer_column-link">
+        <Link to={`${link.href}`} className="footer_column-link">
           {link.linkName}
         </Link>
       </li>
@@ -88,7 +88,7 @@ export function Footer() {
   function makeLinksDropdown(linksBlock, i) {
 
     function toggleDropdown(event) {
-      event.nativeEvent.path.map((elem) => {
+      event.nativeEvent.composedPath().map((elem) => {
         if (elem.className === "dropdown-column") {
           elem
             .getElementsByClassName("dropdown-links_list")[0]
@@ -101,11 +101,14 @@ export function Footer() {
     }
     return (
       <div 
-        onClick={toggleDropdown}
         className="dropdown-column"
         key={`linksDropdown-${i}`}
       >
-        <h3 className="dropdown-column_name">{linksBlock.colName}</h3>
+        <h3
+          onClick={toggleDropdown} 
+          className="dropdown-column_name">
+            {linksBlock.colName}
+        </h3>
         <ul className="dropdown-links_list">
           {linksBlock.linksList.map(makeLink)}
         </ul>

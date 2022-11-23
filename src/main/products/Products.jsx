@@ -25,7 +25,7 @@ export function Products() {
 
   return (
     <div className="container">
-      <h1 className="hero-header product-header">Название продукта</h1>
+      <h1 className="section-header product-header">Название продукта</h1>
       <p className="product-text">
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius et
         delectus id veniam doloribus minima ex autem, aspernatur voluptates odio

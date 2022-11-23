@@ -126,41 +126,43 @@ export function CallManager() {
   return (
     <section className="section-call_manager">
       <div className="container call_manager-container">
-      <h1 className="call_manager-header">
+      <h1 className="section-header product-header">
         Связь <br />с менеджером
       </h1>
       </div>
-      <div className="call_manager-hero">
-        <h2 className="call_manager-subheader">Укажите интересующий продукт</h2>
-        <div className="call_manager-products_and_services">
-          <div className="call_manager-products-container">
-            {products.map(MakeProductCard)}
+      <div className="p-24">
+        <div className="call_manager-hero">
+          <h2 className="call_manager-subheader">Укажите интересующий продукт</h2>
+          <div className="call_manager-products_and_services">
+            <div className="call_manager-products-container">
+              {products.map(MakeProductCard)}
+            </div>
+            <h2 className="call_manager-subheader">или сервис</h2>
+            <div className="call_manager-services-container">
+              {services.map(MakeServiceCard)}
+            </div>
           </div>
-          <h2 className="call_manager-subheader">или сервис</h2>
-          <div className="call_manager-services-container">
-            {services.map(MakeServiceCard)}
-          </div>
+          <h2 className="call_manager-subheader">Заполните форму</h2>
+          <form className="call_manager-form" action="#" method="post">
+            <div className="call_manager-form-container">
+              {makeFormField(formFields[0])}
+              <div className="empty_blick"></div>
+              {formFields.map((formField) => {
+                if (formField.name !== "email") return makeFormField(formField);
+              })}
+              <textarea name="textarea" id="form-textarea" className="form-item" placeholder="Подробности о вашем проекте" ></textarea>
+            </div>
+            <div className="form-checkboxes">
+              <FormCheckbox />
+              <FormCheckbox />
+            </div>
+            <div className="submit-btn-container">
+              <button className="form-submit" type="submit">
+                Отправить
+              </button>
+            </div>
+          </form>
         </div>
-        <h2 className="call_manager-subheader">Заполните форму</h2>
-        <form className="call_manager-form" action="#" method="post">
-          <div className="call_manager-form-container">
-            {makeFormField(formFields[0])}
-            <div className="empty_blick"></div>
-            {formFields.map((formField) => {
-              if (formField.name !== "email") return makeFormField(formField);
-            })}
-            <textarea name="textarea" id="form-textarea" className="form-item" placeholder="Подробности о вашем проекте" ></textarea>
-          </div>
-          <div className="form-checkboxes">
-            <FormCheckbox />
-            <FormCheckbox />
-          </div>
-          <div className="submit-btn-container">
-            <button className="form-submit" type="submit">
-              Отправить
-            </button>
-          </div>
-        </form>
       </div>
     </section>
   );
