@@ -1,7 +1,7 @@
 import "./Header.less";
 import { Link } from 'react-router-dom';
 import { createRef } from 'react';
-import logo from "../img/logo.svg";
+import logo from "../img/Logo.png";
 
 const headerNavLinks = [
   {href: "/products", name: "Продукты"},
@@ -53,7 +53,6 @@ export function Header() {
       <div className="container header-container">
         <Link to='/' className="logo">
           <img className="logo-pic" src={logo} alt="logo" />
-          <span className="logo-text">infocom.</span>
         </Link>
         <ul className="menuList">
           {headerNavLinks.map(makeHeaderLink)}
