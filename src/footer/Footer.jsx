@@ -64,7 +64,6 @@ const footerLinks = [
 
 export function Footer() {
   function makeLink(link, i) {
-    console.log(link.href);
     return (
       <li key={`link-${i}`}>
         <Link to={`${link.href}`} className="footer_column-link">

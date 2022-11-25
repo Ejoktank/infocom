@@ -1,0 +1,108 @@
+@font-face {
+    font-family: 'Lab Grotesque';
+    src: url('LabGrotesque-ThinItalic.eot');
+    src: local('Lab Grotesque Thin Italic'), local('LabGrotesque-ThinItalic'),
+        url('LabGrotesque-ThinItalic.eot?#iefix') format('embedded-opentype'),
+        url('LabGrotesque-ThinItalic.woff2') format('woff2'),
+        url('LabGrotesque-ThinItalic.woff') format('woff'),
+        url('LabGrotesque-ThinItalic.ttf') format('truetype');
+    font-weight: 100;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Lab Grotesque';
+    src: url('LabGrotesque-MediumItalic.eot');
+    src: local('Lab Grotesque Medium Italic'), local('LabGrotesque-MediumItalic'),
+        url('LabGrotesque-MediumItalic.eot?#iefix') format('embedded-opentype'),
+        url('LabGrotesque-MediumItalic.woff2') format('woff2'),
+        url('LabGrotesque-MediumItalic.woff') format('woff'),
+        url('LabGrotesque-MediumItalic.ttf') format('truetype');
+    font-weight: 500;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Lab Grotesque';
+    src: url('LabGrotesque-LightItalic.eot');
+    src: local('Lab Grotesque Light Italic'), local('LabGrotesque-LightItalic'),
+        url('LabGrotesque-LightItalic.eot?#iefix') format('embedded-opentype'),
+        url('LabGrotesque-LightItalic.woff2') format('woff2'),
+        url('LabGrotesque-LightItalic.woff') format('woff'),
+        url('LabGrotesque-LightItalic.ttf') format('truetype');
+    font-weight: 300;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Lab Grotesque';
+    src: url('LabGrotesque-Italic.eot');
+    src: local('Lab Grotesque Italic'), local('LabGrotesque-Italic'),
+        url('LabGrotesque-Italic.eot?#iefix') format('embedded-opentype'),
+        url('LabGrotesque-Italic.woff2') format('woff2'),
+        url('LabGrotesque-Italic.woff') format('woff'),
+        url('LabGrotesque-Italic.ttf') format('truetype');
+    font-weight: normal;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Lab Grotesque';
+    src: url('LabGrotesque-BlackItalic.eot');
+    src: local('Lab Grotesque Black Italic'), local('LabGrotesque-BlackItalic'),
+        url('LabGrotesque-BlackItalic.eot?#iefix') format('embedded-opentype'),
+        url('LabGrotesque-BlackItalic.woff2') format('woff2'),
+        url('LabGrotesque-BlackItalic.woff') format('woff'),
+        url('LabGrotesque-BlackItalic.ttf') format('truetype');
+    font-weight: 900;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Lab Grotesque Mono';
+    src: url('LabGrotesqueMono.eot');
+    src: local('Lab Grotesque Mono'), local('LabGrotesqueMono'),
+        url('LabGrotesqueMono.eot?#iefix') format('embedded-opentype'),
+        url('LabGrotesqueMono.woff2') format('woff2'),
+        url('LabGrotesqueMono.woff') format('woff'),
+        url('LabGrotesqueMono.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Lab Grotesque';
+    src: url('LabGrotesque-BoldItalic.eot');
+    src: local('Lab Grotesque Bold Italic'), local('LabGrotesque-BoldItalic'),
+        url('LabGrotesque-BoldItalic.eot?#iefix') format('embedded-opentype'),
+        url('LabGrotesque-BoldItalic.woff2') format('woff2'),
+        url('LabGrotesque-BoldItalic.woff') format('woff'),
+        url('LabGrotesque-BoldItalic.ttf') format('truetype');
+    font-weight: bold;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Lab Grotesque Mono';
+    src: url('LabGrotesqueMono-Bold.eot');
+    src: local('Lab Grotesque Mono Bold'), local('LabGrotesqueMono-Bold'),
+        url('LabGrotesqueMono-Bold.eot?#iefix') format('embedded-opentype'),
+        url('LabGrotesqueMono-Bold.woff2') format('woff2'),
+        url('LabGrotesqueMono-Bold.woff') format('woff'),
+        url('LabGrotesqueMono-Bold.ttf') format('truetype');
+    font-weight: bold;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Lab Grotesque';
+    src: url('LabGrotesque-Black.eot');
+    src: local('Lab Grotesque Black'), local('LabGrotesque-Black'),
+        url('LabGrotesque-Black.eot?#iefix') format('embedded-opentype'),
+        url('LabGrotesque-Black.woff2') format('woff2'),
+        url('LabGrotesque-Black.woff') format('woff'),
+        url('LabGrotesque-Black.ttf') format('truetype');
+    font-weight: 900;
+    font-style: normal;
+}
+

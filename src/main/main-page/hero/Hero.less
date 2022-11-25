@@ -1,18 +1,18 @@
-/* --------- */ 
+/* --------- */
 /* VARIABLES */
-/* --------- */ 
+/* --------- */
 
-@max1080: ~'(max-width: 1080px)';
-@max768: ~'(max-width: 768px)';
-@max500: ~'(max-width: 500px)';
-@max375: ~'(max-width: 375px)';
+@max1080: ~"(max-width: 1080px)";
+@max768: ~"(max-width: 768px)";
+@max500: ~"(max-width: 500px)";
+@max375: ~"(max-width: 375px)";
 
 /* ------ */
 /* -HERO- */
 /* ------ */
 
 .section-hero {
-    margin-top: 40px;
+  margin-top: 40px;
 }
 
 .hero_links-list {
@@ -35,85 +35,90 @@
 
 .hero_link {
   font-size: 21px;
-  border-bottom: 1px solid #a6a6a6;
+  border-bottom: 2px solid #0000001f;
+
+  &:hover {
+    cursor: pointer;
+    border-bottom: 2px solid #000;
+  }
 }
 
 .hero_links_list-container {
-    display: none;
+  display: none;
 
-    margin-top: 20px;
-    margin-bottom: 20px;
+  margin-top: 20px;
+  margin-bottom: 20px;
 
-    @media @max1080 {
-        display: flex;
-        flex-direction: column;
-    }
+  @media @max1080 {
+    display: flex;
+    flex-direction: column;
+  }
 }
 
 // ------
-// MOBILE 
+// MOBILE
 // ------
 
 .m_hero_links-list {
-    margin-bottom: 60px;
-    border-radius: 40px;
-    box-shadow: 3px 7px 12px #00000030;
+  margin-bottom: 60px;
+  border-radius: 40px;
+  box-shadow: 3px 7px 12px #00000030;
 
-    :not(:last-child) {
-        border-bottom: 1px solid #A5A5A580;
-    }
+  :not(:last-child) {
+    border-bottom: 1px solid #a5a5a580;
+  }
 
-    @media @max768 {
-        border-radius: 30px;
-      }
-    
-    @media @max375 {
-        border-radius: 20px;
-    }
+  @media @max768 {
+    border-radius: 30px;
+  }
+
+  @media @max375 {
+    border-radius: 20px;
+  }
 }
 
 .m_hero_links_list-item {
-    display: block;
-    padding: 36px 48px;
+  display: block;
+  padding: 36px 48px;
 
-    transition: ease-in-out .2s;
+  transition: ease-in-out 0.2s;
 
-    @media @max768 {
-        padding: 24px 32px;
-    }
+  @media @max768 {
+    padding: 24px 32px;
+  }
 
-    @media @max375 {
-        padding: 16px 24px;
-    }
+  @media @max375 {
+    padding: 16px 24px;
+  }
 }
 
 .m_hero_link {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    font-size: 36px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 36px;
+
+  &::after {
+    content: url(../../../img/arrow.svg);
+    margin-left: 30px;
+  }
+
+  @media @max768 {
+    font-size: 24px;
 
     &::after {
-        content: url(../../../img/arrow.svg);
-        margin-left: 30px;
+      content: url(../../../img/arrow_less.svg);
+      margin-left: 30px;
     }
+  }
 
-    @media @max768 {
-        font-size: 24px;
+  @media @max500 {
+    font-size: 18px;
 
-        &::after {
-            content: url(../../../img/arrow_less.svg);
-            margin-left: 30px;
-        }
+    &::after {
+      content: url(../../../img/arrow_little.svg);
+      margin-left: 30px;
     }
-
-    @media @max500 {
-        font-size: 18px;
-
-        &::after {
-            content: url(../../../img/arrow_little.svg);
-            margin-left: 30px;
-        }
-    }
+  }
 }

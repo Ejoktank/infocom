@@ -24,7 +24,7 @@ export function Products() {
   }
 
   return (
-    <div className="container">
+    <div className="container products-container">
       <h1 className="section-header product-header">Название продукта</h1>
       <p className="product-text">
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius et

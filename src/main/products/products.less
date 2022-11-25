@@ -7,6 +7,12 @@
 @max500: ~"(max-width: 500px)";
 @max375: ~"(max-width: 375px)";
 
+.products-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 .product-header {
   width: 100%;
   text-align: center;
@@ -28,22 +34,29 @@
 }
 
 .product-tags_container {
+  width: 80%;
+  margin-top: 30px;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  justify-content: space-around;
+  justify-content: center;
 }
 
 .tag {
-  padding: 10px 30px;
+  padding: 10px 20px;
   margin: 30px 10px 0;
 
   display: flex;
   align-items: center;
 
-  font-size: 26px;
+  font-size: 24px;
   border-radius: 30px;
-  box-shadow: 0px 7px 20px 0px #00000026;
+  box-shadow: 0 10px 36px 8px #0000000f;
+
+  img {
+    width: 36px;
+    height: 36px;
+  }
 
   span {
     margin-left: 12px;

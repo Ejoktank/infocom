@@ -1,0 +1,96 @@
+@font-face {
+    font-family: "Quinoa";
+    font-weight: 400;
+    src: url(../src/fonts/Quinoa/Quinoa-Regular.ttf);
+  }
+  
+  @font-face {
+    font-family: "Quinoa";
+    font-weight: 500;
+    src: url(../src/fonts/Quinoa/Quinoa-Medium.ttf);
+  }
+  
+  @font-face {
+    font-family: "Quinoa";
+    font-weight: 700;
+    src: url(../src/fonts/Quinoa/Quinoa-Bold.ttf);
+  }
+  
+  @font-face {
+    font-family: "Quinoa";
+    font-weight: 300;
+    src: url(../src/fonts/Quinoa/Quinoa-Light.ttf);
+  }
+  
+  @font-face {
+    font-family: "Quinoa";
+    font-weight: 100;
+    src: url(../src/fonts/Quinoa/Quinoa-Thin.ttf);
+  }
+  
+  @font-face {
+    font-family: "Quinoa";
+    font-weight: 600;
+    src: url(../src/fonts/Quinoa/Quinoa-Semibold.ttf);
+  }
+  
+  @font-face {
+    font-family: 'Lab Grotesque';
+    src: url('../src/fonts/LabGrotesque/LabGrotesque-Thin.eot');
+    src: local('Lab Grotesque Thin'), local('LabGrotesque-Thin'),
+        url('../src/fonts/LabGrotesque/LabGrotesque-Thin.eot?#iefix') format('embedded-opentype'),
+        url('../src/fonts/LabGrotesque/LabGrotesque-Thin.woff2') format('woff2'),
+        url('../src/fonts/LabGrotesque/LabGrotesque-Thin.woff') format('woff'),
+        url('../src/fonts/LabGrotesque/LabGrotesque-Thin.ttf') format('truetype');
+    font-weight: 100;
+    font-style: normal;
+  }
+  
+  @font-face {
+    font-family: 'Lab Grotesque';
+    src: url('../src/fonts/LabGrotesque/LabGrotesque-Light.eot');
+    src: local('Lab Grotesque Light'), local('LabGrotesque-Light'),
+        url('../src/fonts/LabGrotesque/LabGrotesque-Light.eot?#iefix') format('embedded-opentype'),
+        url('../src/fonts/LabGrotesque/LabGrotesque-Light.woff2') format('woff2'),
+        url('../src/fonts/LabGrotesque/LabGrotesque-Light.woff') format('woff'),
+        url('../src/fonts/LabGrotesque/LabGrotesque-Light.ttf') format('truetype');
+    font-weight: 300;
+    font-style: normal;
+  }
+  
+  @font-face {
+    font-family: 'Lab Grotesque';
+    src: url('../src/fonts/LabGrotesque/LabGrotesque-Regular.eot');
+    src: local('Lab Grotesque Regular'), local('LabGrotesque-Regular'),
+        url('../src/fonts/LabGrotesque/LabGrotesque-Regular.eot?#iefix') format('embedded-opentype'),
+        url('../src/fonts/LabGrotesque/LabGrotesque-Regular.woff2') format('woff2'),
+        url('../src/fonts/LabGrotesque/LabGrotesque-Regular.woff') format('woff'),
+        url('../src/fonts/LabGrotesque/LabGrotesque-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+  }
+  
+  @font-face {
+    font-family: 'Lab Grotesque';
+    src: url('../src/fonts/LabGrotesque/LabGrotesque-Medium.eot');
+    src: local('Lab Grotesque Medium'), local('LabGrotesque-Medium'),
+        url('../src/fonts/LabGrotesque/LabGrotesque-Medium.eot?#iefix') format('embedded-opentype'),
+        url('../src/fonts/LabGrotesque/LabGrotesque-Medium.woff2') format('woff2'),
+        url('../src/fonts/LabGrotesque/LabGrotesque-Medium.woff') format('woff'),
+        url('../src/fonts/LabGrotesque/LabGrotesque-Medium.ttf') format('truetype');
+    font-weight: 500;
+    font-style: normal;
+  }
+  
+  @font-face {
+    font-family: 'Lab Grotesque';
+    src: url('../src/fonts/LabGrotesque/LabGrotesque-Bold.eot');
+    src: local('Lab Grotesque Bold'), local('LabGrotesque-Bold'),
+        url('../src/fonts/LabGrotesque/LabGrotesque-Bold.eot?#iefix') format('embedded-opentype'),
+        url('../src/fonts/LabGrotesque/LabGrotesque-Bold.woff2') format('woff2'),
+        url('../src/fonts/LabGrotesque/LabGrotesque-Bold.woff') format('woff'),
+        url('../src/fonts/LabGrotesque/LabGrotesque-Bold.ttf') format('truetype');
+    font-weight: bold;
+    font-style: normal;
+  }
+  
