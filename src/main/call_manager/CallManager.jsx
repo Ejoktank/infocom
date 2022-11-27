@@ -146,7 +146,7 @@ export function CallManager() {
           <form className="call_manager-form" action="#" method="post">
             <div className="call_manager-form-container">
               {makeFormField(formFields[0])}
-              <div className="empty_blick"></div>
+              <div className="empty_brick"></div>
               {formFields.map((formField) => {
                 if (formField.name !== "email") return makeFormField(formField);
               })}

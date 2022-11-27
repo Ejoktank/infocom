@@ -36,22 +36,22 @@
 
 .dropdown-column {
   padding-left: 48px;
-  margin-bottom: 100px;
+  margin-bottom: 60px;
   transition-duration: 0.3s;
 
   @media @max768 {
     padding-left: 40px;
-    margin-bottom: 80px;
+    margin-bottom: 50px;
   }
 
   @media @max500 {
     padding-left: 30px;
-    margin-bottom: 60px;
+    margin-bottom: 40px;
   }
 
   @media @max375 {
     padding-left: 24px;
-    margin-bottom: 40px;
+    margin-bottom: 30px;
   }
 }
 
@@ -62,7 +62,7 @@
 .dropdown-column_name {
   position: relative;
   margin-bottom: 50px;
-  font-size: 50px;
+  font-size: 40px;
   font-weight: 550;
 
   user-select: none;
@@ -125,6 +125,7 @@
   &:hover {
     cursor: pointer;
     color: #000000;
+    margin-bottom: 7px;
     border-bottom: 1px solid #000;
   }
 }
@@ -136,7 +137,7 @@
     display: inline-block;
     margin-bottom: 20px;
     color: #000;
-    font-size: 50px;
+    font-size: 40px;
     font-weight: 300;
 
     &:hover {
@@ -144,18 +145,23 @@
     }
 
     @media @max768 {
-      font-size: 40px;
+      font-size: 30px;
       margin-bottom: 14px;
+
+      &:hover {
+        margin-bottom: 13px;
+      }
     }
 
     @media @max500 {
-      font-size: 30px;
+      font-size: 24px;
       margin-bottom: 8px;
+
+      &:hover {
+        margin-bottom: 7px;
+      }
     }
 
-    @media @max375 {
-      font-size: 24px;
-    }
   }
 }
 

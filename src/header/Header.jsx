@@ -1,7 +1,7 @@
 import "./Header.less";
 import { Link } from 'react-router-dom';
 import { createRef } from 'react';
-import logo from "../img/Logo.png";
+import logo from "../img/Logo.jpg";
 
 const headerNavLinks = [
   {href: "/products", name: "Продукты"},
