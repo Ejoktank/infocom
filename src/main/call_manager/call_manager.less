@@ -106,7 +106,7 @@
 
   input[type="radio"]:checked ~ .card-outline {
     box-shadow: 0 0 0 3px #000000;
-    
+
   }
 
   input[type="radio"]:checked + .small_card-checkbox {
@@ -123,6 +123,7 @@
   color: #fff;
   font-size: 20px;
   font-weight: 550;
+  text-align: center;
 
   @media @max768 {
     font-size: 18px;
@@ -264,8 +265,17 @@ textarea.form-item {
 
 .form_checkboxes-container {
   display: flex;
-  flex-direction: row;
+  flex-direction: row-reverse;
   align-items: flex-start;
+
+  &:hover {
+    cursor: pointer;
+  }
+
+  input[type="checkbox"]:checked + .checkbox {
+    border-color: #000000;
+    background: #000000;
+  }
 
   .checkbox {
     width: 17px;
