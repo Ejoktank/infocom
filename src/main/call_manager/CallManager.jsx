@@ -6,7 +6,6 @@ import ChatBot from "../../img/chat_bots.png";
 import Web from "../../img/web.png";
 
 import { FormCheckbox } from "./Checkbox/FormCheckbox";
-import { useState } from "react";
 
 const formFields = [
   {
@@ -94,6 +93,14 @@ export function CallManager() {
           name="call_manager-radio"
           id={`product-check-${i}`}
         />
+        <svg
+          className='checkbox small_card-checkbox'
+          aria-hidden="true"
+          viewBox="0 0 15 11"
+          fill="none"
+        >
+          <path d="M1 4.5L5 9L14 1" strokeWidth="2" stroke={"transparent"} />
+        </svg>
         <div className="card-outline">
           <div className="small_card-img-container">
             <img src={product.image} alt="product illustration" />
@@ -114,7 +121,7 @@ export function CallManager() {
           id={`service-check-${i}`}
         />
         <svg
-          className={`checkbox`}
+          className='checkbox'
           aria-hidden="true"
           viewBox="0 0 15 11"
           fill="none"

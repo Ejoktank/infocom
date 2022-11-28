@@ -55,29 +55,19 @@
 /* SERVICES */
 
 .call_manager-products-container {
+  position: relative;
   display: grid;
   grid-template-columns: repeat(5, 1fr);
-  gap: 20px;
+  gap: 10px;
   padding: 3px;
-
+  overflow-x: scroll;
+  scroll-snap-type: x proximity;
 
   &::-webkit-scrollbar {
     display: none;
-    -ms-overflow-style: none; 
-    scrollbar-width: none; 
+    -ms-overflow-style: none;
+    scrollbar-width: none;
   }
-
-  @media @max768 {
-    gap: 10px;
-  }
-}
-
-.call_manager-products-container--wrapper {
-  position: relative;
-  max-width: 100%;
-  width: 100%;
-  overflow-x: scroll;
-  scroll-snap-type: x proximity;
 }
 
 .small_card-img-container {
@@ -98,7 +88,7 @@
 }
 
 .card-outline {
-  // width: calc(100% - 40px);
+  width: calc(100% - 40px);
   height: calc(100% - 40px);
   padding: 20px;
   border-radius: 20px;
@@ -107,13 +97,25 @@
 
 .small_card {
   border-radius: 20px;
-  
+  position: relative;
+
   &:hover {
     cursor: pointer;
+    box-shadow: 0 0 0 3px #00000040;
   }
-  
-  input[type="radio"]:checked + .card-outline{
-    outline: 3px solid #00000040;
+
+  input[type="radio"]:checked ~ .card-outline {
+    box-shadow: 0 0 0 3px #000000;
+    
+  }
+
+  input[type="radio"]:checked + .small_card-checkbox {
+    border-color: #ffffff;
+    background: #ffffff;
+
+    path {
+      stroke: #000;
+    }
   }
 }
 
@@ -127,19 +129,14 @@
   }
 }
 
-.small_card--active {
-  outline: 3px solid #00000040;
-}
-
 .call_manager-services-container {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 20px;
+  gap: 10px;
 
   @media @max768 {
     display: flex;
     flex-direction: column;
-    gap: 10px
   }
 }
 
@@ -155,15 +152,14 @@
   box-shadow: 0 25px 50px -21px rgb(0 0 0 / 20%);
 
   user-select: none;
-  
+
   &:hover {
     cursor: pointer;
   }
 
-  input[type="radio"]:checked + .checkbox{
+  input[type="radio"]:checked + .checkbox {
     border-color: #000000;
     background: #000000;
-    fill: #000000;
   }
 }
 
@@ -194,9 +190,11 @@ input[type="radio"] {
   margin-right: 4px;
 }
 
-.checkbox--active {
-  border-color: #000000;
-  background: #000000;
+.small_card-checkbox {
+  position: absolute;
+  top: 20px;
+  right: 15px;
+  border: 3px #ffffff80 solid;
 }
 
 /* FORM */
