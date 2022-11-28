@@ -132,7 +132,7 @@ export function Footer() {
             персональных данных.
           </p>
         </div>
-        <div className="search_block">Поиск по сайту</div>
+        <input type="text" className="search_block" placeholder="Поиск по сайту"></input>
       </div>
     </footer>
   );
