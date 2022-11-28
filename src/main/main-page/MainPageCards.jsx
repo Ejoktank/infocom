@@ -2,6 +2,7 @@ import "./MainPage.less";
 import Im1 from "../../img/Rect.svg";
 import Im2 from "../../img/Ellipse.svg";
 import Im3 from "../../img/Polygon.svg";
+import { useState } from "react";
 
 const cardsContent = [
   {
@@ -24,17 +25,27 @@ const cardsContent = [
   },
 ];
 
-export function MainPageCards() {
-  function createCard(cardContent, i) {
+export function MainPageCards() {  
+  function CreateCard(cardContent, i) {
+    const [isShown, setIsShown] = useState(false);
+
     return (
       <div
         className="card"
         style={{
-          backgroundImage: `url(${cardContent.bgImg})`,
+          backgroundImage: `url(${cardContent.bgImg})`, 
           backgroundColor: cardContent.bgColor,
         }}
         id={`hero_card-${i}`}
         key={`hero_card-${i}`}
+        onMouseEnter={(e) => {
+          setIsShown(true);
+          e.target.style.boxShadow=`0 25px 50px -21px ${cardContent.bgColor}`;
+        }}
+        onMouseLeave={(e) => {
+          setIsShown(false);
+          e.target.style.boxShadow='';
+        }}
       >
         <h4 className="card_subheader">{cardContent.subheader}</h4>
         <p className="card_header">{cardContent.header}</p>
@@ -45,7 +56,7 @@ export function MainPageCards() {
   return (
     <section className="main_page-cards">
       <div className="container cards-container">
-        {cardsContent.map(createCard)}
+        {cardsContent.map(CreateCard)}
       </div>
     </section>
   );
