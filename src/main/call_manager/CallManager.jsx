@@ -138,8 +138,10 @@ export function CallManager() {
             Укажите интересующий продукт
           </h2>
           <div className="call_manager-products_and_services">
-            <div className="call_manager-products-container">
-              {products.map(MakeProductCard)}
+            <div className="call_manager-products-container--wrapper">
+              <div className="call_manager-products-container">
+                {products.map(MakeProductCard)}
+              </div>
             </div>
             <h2 className="call_manager-subheader">или сервис</h2>
             <div className="call_manager-services-container">

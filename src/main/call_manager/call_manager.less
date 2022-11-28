@@ -59,9 +59,7 @@
   grid-template-columns: repeat(5, 1fr);
   gap: 20px;
   padding: 3px;
-  
-  overflow-x: scroll;
-  scroll-snap-type: x proximity;
+
 
   &::-webkit-scrollbar {
     display: none;
@@ -72,6 +70,14 @@
   @media @max768 {
     gap: 10px;
   }
+}
+
+.call_manager-products-container--wrapper {
+  position: relative;
+  max-width: 100%;
+  width: 100%;
+  overflow-x: scroll;
+  scroll-snap-type: x proximity;
 }
 
 .small_card-img-container {
