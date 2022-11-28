@@ -52,12 +52,24 @@
 
 .loginBtn {
   margin-right: 0;
-  padding: 10px 20px;
   font-weight: 700;
   font-size: 20px;
   background-color: transparent;
-  border: 1px solid #000;
+  border: 2px solid #000;
   border-radius: 30px;
+
+  &:hover {
+    border-color: #7027f0;
+
+    a {
+      color: #7027f0;
+    }
+  }
+
+  a {
+    display: block;
+    padding: 10px 20px;
+  }
 }
 
 .burger {

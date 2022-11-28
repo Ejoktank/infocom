@@ -59,8 +59,9 @@
   grid-template-columns: repeat(5, 1fr);
   gap: 20px;
   padding: 3px;
-
+  
   overflow-x: scroll;
+  scroll-snap-type: x proximity;
 
   &::-webkit-scrollbar {
     display: none;
@@ -90,13 +91,23 @@
   }
 }
 
-.small_card {
+.card-outline {
+  // width: calc(100% - 40px);
+  height: calc(100% - 40px);
   padding: 20px;
   border-radius: 20px;
   user-select: none;
+}
 
+.small_card {
+  border-radius: 20px;
+  
   &:hover {
     cursor: pointer;
+  }
+  
+  input[type="radio"]:checked + .card-outline{
+    outline: 3px solid #00000040;
   }
 }
 
@@ -141,6 +152,12 @@
   
   &:hover {
     cursor: pointer;
+  }
+
+  input[type="radio"]:checked + .checkbox{
+    border-color: #000000;
+    background: #000000;
+    fill: #000000;
   }
 }
 
@@ -262,6 +279,10 @@ textarea.form-item {
   display: flex;
   flex-direction: row;
   justify-content: flex-end;
+
+  @media @max768 {
+    justify-content: center;
+  }
 }
 
 .form-submit {

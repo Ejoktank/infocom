@@ -83,41 +83,43 @@ export function CallManager() {
   }
 
   function MakeProductCard(product, i) {
-    const [isChecked, setIsChecked] = useState(false);
-
     return (
-      <div
-        className={`small_card ${isChecked ? "small_card--active" : ""}`}
-        onClick={() => {
-          setIsChecked(!isChecked);
-        }}
+      <label
+        className={`small_card`}
         style={{ backgroundColor: product.bgc }}
         key={`small-card-${i}`}
       >
-        <div className="small_card-img-container">
-          <img src={product.image} alt="product illustration" />
+        <input
+          type="radio"
+          name="call_manager-radio"
+          id={`product-check-${i}`}
+        />
+        <div className="card-outline">
+          <div className="small_card-img-container">
+            <img src={product.image} alt="product illustration" />
+          </div>
+          <p className="small_card-text">{product.name}</p>
         </div>
-        <p className="small_card-text">{product.name}</p>
-      </div>
+      </label>
     );
   }
 
   function MakeServiceCard(service, i) {
-    const [isChecked, setIsChecked] = useState(false);
-
     return (
       <label className="service-card" key={`service-card-${i}`}>
         <span className="service-label">{service}</span>
         <input
           type="radio"
-          name="radio-228"
-          onChange={() => {
-            setIsChecked(!isChecked);
-          }}
+          name="call_manager-radio"
           id={`service-check-${i}`}
         />
-        <svg className={`checkbox ${isChecked ? "checkbox--active" : ""}`} aria-hidden="true" viewBox="0 0 15 11" fill="none" >
-          <path d="M1 4.5L5 9L14 1" strokeWidth="2" stroke={isChecked ? "#fff" : "none"} />
+        <svg
+          className={`checkbox`}
+          aria-hidden="true"
+          viewBox="0 0 15 11"
+          fill="none"
+        >
+          <path d="M1 4.5L5 9L14 1" strokeWidth="2" stroke={"#fff"} />
         </svg>
       </label>
     );
@@ -126,13 +128,15 @@ export function CallManager() {
   return (
     <section className="section-call_manager">
       <div className="container call_manager-container">
-      <h1 className="section-header product-header">
-        Связь <br />с менеджером
-      </h1>
+        <h1 className="section-header product-header">
+          Связь <br />с менеджером
+        </h1>
       </div>
       <div className="p-24">
         <div className="call_manager-hero">
-          <h2 className="call_manager-subheader">Укажите интересующий продукт</h2>
+          <h2 className="call_manager-subheader">
+            Укажите интересующий продукт
+          </h2>
           <div className="call_manager-products_and_services">
             <div className="call_manager-products-container">
               {products.map(MakeProductCard)}
@@ -150,7 +154,12 @@ export function CallManager() {
               {formFields.map((formField) => {
                 if (formField.name !== "email") return makeFormField(formField);
               })}
-              <textarea name="textarea" id="form-textarea" className="form-item" placeholder="Подробности о вашем проекте" ></textarea>
+              <textarea
+                name="textarea"
+                id="form-textarea"
+                className="form-item"
+                placeholder="Подробности о вашем проекте"
+              ></textarea>
             </div>
             <div className="form-checkboxes">
               <FormCheckbox />
