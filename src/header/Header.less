@@ -1,5 +1,6 @@
 @max1080: ~"(max-width: 1080px)";
 @max768: ~"(max-width: 768px)";
+@max500: ~"(max-width: 500px)";
 @max375: ~"(max-width: 375px)";
 
 .header {
@@ -7,6 +8,7 @@
 }
 
 .header-container {
+  position: relative;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -184,6 +186,32 @@
     @media @max768 {
       top: 8px;
     }
+  }
+}
+
+.burger--active {
+  position: fixed;
+  top: 0;
+  right: 0;
+
+  @media @max1080 {
+    top: 34px;
+    right: 80px;
+  }
+
+  @media @max768 {
+    top: 32px;
+    right: 60px;
+  }
+
+  @media @max500 {
+    top: 26px;
+    right: 40px;
+  }
+
+  @media @max375 {
+    top: 30px;
+    right: 30px;
   }
 }
 

@@ -15,7 +15,6 @@ export function Header() {
   const stork = createRef();
 
   function toggleBurger(meth) {
-
     return function () {
       stork.current.classList[meth]('bugrer--appear');
       document.getElementById("burger-open").classList[meth]("burger--active");
@@ -60,8 +59,7 @@ export function Header() {
         <button onClick={toggleBurger("toggle")} className="burger" id="burger-open">
           <span className='burger-lines'></span>
         </button>
-        <div ref={stork} onClick={toggleBurger("remove")} 
-            className="container burger-menu">
+        <div ref={stork} onClick={toggleBurger("remove")} className="container burger-menu">
           <ul className="burger_menu-list">
             {headerNavLinks.map(makeBurgerLink)}
           </ul>

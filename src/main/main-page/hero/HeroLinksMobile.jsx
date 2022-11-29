@@ -21,6 +21,9 @@ export function HeroLinksMobile() {
       <ul className="m_hero_links-list">
         {heroLinksList.mobile.secondPart.map(makeHeroLinkMobile)}
       </ul>
+      <ul className="m_hero_links-list">
+        {heroLinksList.mobile.thirdPart.map(makeHeroLinkMobile)}
+      </ul>
     </div>
   );
 }

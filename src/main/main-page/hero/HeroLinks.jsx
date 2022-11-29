@@ -17,11 +17,15 @@ export const heroLinksList = {
             {name: "Гейм дев", href: "#"},
             {name: "Мобильная разработка", href: "#"},
             {name: "No-code разработка", href: "#"},
-            {name: "Внедрение чат-ботов", href: "#"},
         ],
         secondPart: [
+            {name: "Внедрение чат-ботов", href: "#"},
             {name: "Разработка сайтов", href: "#"},
+        ],
+        thirdPart: [
             {name: "Аудит и консалтинг", href: "#"},
+            {name: "FinTech", href: "#"},
+            {name: "EdTech", href: "#"},
         ]
     }
 }
