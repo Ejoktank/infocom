@@ -6,48 +6,62 @@ require("dotenv").config({
 const express = require("express");
 const bodyParser = require("body-parser");
 const nodemailer = require("nodemailer");
-const cors = require("cors");
 const app = express();
 
-app.use(cors());
-app.use(bodyParser.json());
-app.listen(5000, () => console.log("Server Running"));
+function createMailer() {
 
-const contactEmail = {
-  host: "smtp.yandex.com",
-  port: 465,
-  secure: true,
-  auth: {
-    user: process.env.SMTP_TO_EMAIL,
-    pass: process.env.SMTP_TO_PASSWORD,
-  },
-  debug: true,
-  logger: true,
-};
+  const contactEmail = {
+    host: "smtp.yandex.com",
+    port: 465,
+    secure: true,
+    auth: {
+      user: process.env.SMTP_TO_EMAIL,
+      pass: process.env.SMTP_TO_PASSWORD,
+    }
+  };
 
-console.log(contactEmail);
-
-const mail = {
-  from: process.env.SMTP_TO_EMAIL,
-  to: process.env.SMTP_TO_EMAIL,
-  subject: "Message",
-  text: "I hope this message gets delivered!",
-};
-
-console.log(mail);
-
-const transporter = nodemailer.createTransport(contactEmail);
-transporter.verify((error, success) => {
-  if (error) {
-    console.error(error);
-  } else {
-    transporter.sendMail(mail, (err, info) => {
-      console.log(err);
-      console.log(info.envelope);
-      console.log(info.messageId);
+  return new Promise((resolve, reject) => {
+    const transporter = nodemailer.createTransport(contactEmail);
+    transporter.verify((error) => {
+      if (error) {
+        console.error(error);
+        return reject(error);
+      } else {
+        resolve(transporter);
+      }
     });
-    console.log("Ready to send mail!");
-  }
-});
+  });
+}
 
-transporter.sendMail();
+createMailer().then((transporter) => {
+
+  app.use(bodyParser.json());
+  app.get('/', (_, res) => res.send("Online!"));
+  app.post('/send', (req, res) => {
+
+    //TODO: a lot of validations here
+    // 
+    // 1. Does subject exists
+    // 2. Does text exists
+    // 3. Is subject valid string
+    // 4. Is text valid string
+    // 5. Injections ???
+
+    const mail = {
+      from: process.env.SMTP_TO_EMAIL,
+      to: process.env.SMTP_TO_EMAIL,
+      subject: req.body.subject,
+      text: req.body.text,
+    };
+
+    transporter.sendMail(mail, (err) => {
+      if (err) {
+        console.error(err);
+        return res.sendStatus(500);
+      }
+      res.sendStatus(200);
+    });
+  });
+  app.listen(5000, () => console.log("Server Running"));
+
+});
