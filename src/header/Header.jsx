@@ -19,6 +19,7 @@ export function Header() {
       stork.current.classList[meth]('bugrer--appear');
       document.getElementById("burger-open").classList[meth]("burger--active");
       document.body.classList[meth]("overflowY-hidden");
+      document.getElementsByClassName("section-call_manager")[0].classList[meth]("opacity-0")
     }
   }
 
