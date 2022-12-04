@@ -54,13 +54,17 @@ createMailer().then((transporter) => {
       text: req.body.text,
     };
 
-    transporter.sendMail(mail, (err) => {
-      if (err) {
-        console.error(err);
-        return res.sendStatus(500);
-      }
-      res.sendStatus(200);
-    });
+    console.log(JSONStringify(req.body));
+
+    // if (req.body.text) {
+    //   transporter.sendMail(mail, (err) => {
+    //     if (err) {
+    //       console.error(err);
+    //       return res.sendStatus(500);
+    //     }
+    //     res.sendStatus(200);
+    //   });
+    // }
   });
   app.listen(5000, () => console.log("Server Running"));
 

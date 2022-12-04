@@ -13,7 +13,7 @@ export function FormCheckbox() {
         occaecat cupidatat non proident, sunt in culpa qui officia deserunt
         mollit anim id est laborum.
       </span>
-      <input type="checkbox" />
+      <input type="checkbox" required={true} />
       <svg className='checkbox' aria-hidden="true" viewBox="0 0 15 11" fill="none">
         <path d="M1 4.5L5 9L14 1" strokeWidth="2" stroke="#fff" />
       </svg>

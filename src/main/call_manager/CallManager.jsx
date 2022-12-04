@@ -77,6 +77,7 @@ export function CallManager() {
         key={formField.id}
         placeholder={formField.placeholder}
         className="form-item"
+        required={true}
       />
     );
   }
@@ -94,7 +95,7 @@ export function CallManager() {
           id={`product-check-${i}`}
         />
         <svg
-          className='checkbox small_card-checkbox'
+          className="checkbox small_card-checkbox"
           aria-hidden="true"
           viewBox="0 0 15 11"
           fill="none"
@@ -121,7 +122,7 @@ export function CallManager() {
           id={`service-check-${i}`}
         />
         <svg
-          className='checkbox'
+          className="checkbox"
           aria-hidden="true"
           viewBox="0 0 15 11"
           fill="none"
@@ -131,6 +132,58 @@ export function CallManager() {
       </label>
     );
   }
+
+  async () => {
+    const object = "";
+
+    document.getElementById("call_manager-form").onsubmit = (e) => {
+      e.preventDefault();
+
+      const email = document.getElementById("form-email").value;
+      const name = document.getElementById("form-name").value;
+      const lastName = document.getElementById("form-last_name").value;
+      const company = document.getElementById("form-company").value;
+      const position = document.getElementById("form-position").value;
+      const phone = document.getElementById("form-phone").value;
+      const country = document.getElementById("form-country").value;
+      const textArea = document.getElementById("form-textArea").value;
+      let radioChoice = null;
+
+      for (let radio of document.getElementsByClassName(
+        "call_manageыr-radio"
+      )) {
+        if (radio.isChecked) {
+          radioChoice = radio;
+        }
+      }
+
+      object = {
+        email: email,
+        name: name,
+        lastName: lastName,
+        company: company,
+        position: position,
+        phone: phone,
+        country: country,
+        textArea: textArea,
+        radioChoice: radioChoice,
+      };
+
+      console.log(object);
+    };
+
+    const rawResponse = await fetch("/send", {
+      method: "POST",
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(object),
+    });
+    const content = await rawResponse.json();
+
+    console.log(content);
+  };
 
   return (
     <section className="section-call_manager">
@@ -156,7 +209,12 @@ export function CallManager() {
             </div>
           </div>
           <h2 className="call_manager-subheader">Заполните форму</h2>
-          <form className="call_manager-form" action="#" method="post">
+          <form
+            className="call_manager-form"
+            action="/send"
+            method="post"
+            id="call_manager-form"
+          >
             <div className="call_manager-form-container">
               {makeFormField(formFields[0])}
               <div className="empty_brick"></div>
