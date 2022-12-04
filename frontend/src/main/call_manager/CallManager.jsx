@@ -133,56 +133,49 @@ export function CallManager() {
     );
   }
 
-  async () => {
-    const object = "";
+  async function sendEmail(e) {
+    
+    e.preventDefault();
 
-    document.getElementById("call_manager-form").onsubmit = (e) => {
-      e.preventDefault();
+    const email = document.getElementById("form-email").value;
+    const name = document.getElementById("form-name").value;
+    const lastName = document.getElementById("form-last_name").value;
+    const company = document.getElementById("form-company").value;
+    const position = document.getElementById("form-position").value;
+    const phone = document.getElementById("form-phone").value;
+    const country = document.getElementById("form-country").value;
+    const textArea = document.getElementById("form-textarea").value;
+    let radioChoice = null;
 
-      const email = document.getElementById("form-email").value;
-      const name = document.getElementById("form-name").value;
-      const lastName = document.getElementById("form-last_name").value;
-      const company = document.getElementById("form-company").value;
-      const position = document.getElementById("form-position").value;
-      const phone = document.getElementById("form-phone").value;
-      const country = document.getElementById("form-country").value;
-      const textArea = document.getElementById("form-textArea").value;
-      let radioChoice = null;
-
-      for (let radio of document.getElementsByClassName(
-        "call_manageыr-radio"
-      )) {
-        if (radio.isChecked) {
-          radioChoice = radio;
-        }
+    for (let radio of document.getElementsByClassName("call_manager-radio")) {
+      if (radio.isChecked) {
+        radioChoice = radio;
       }
+    }
 
-      object = {
-        email: email,
-        name: name,
-        lastName: lastName,
-        company: company,
-        position: position,
-        phone: phone,
-        country: country,
-        textArea: textArea,
-        radioChoice: radioChoice,
-      };
-
-      console.log(object);
+    const object = {
+      subject: `New order from ${name} ${lastName} [${company} - ${position}]`,
+      text: `${textArea}\n\n-- ${name} ${lastName}\n-- ${company}\n-- ${position}\n-- ${phone}\n-- ${email}\n-- ${country}\n`,
     };
 
-    const rawResponse = await fetch("/send", {
-      method: "POST",
-      headers: {
-        Accept: "application/json",
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(object),
-    });
-    const content = await rawResponse.json();
+    try {
+      const rawResponse = await fetch("/send", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(object),
+      });
 
-    console.log(content);
+      const content = await rawResponse.json();
+      console.log(content);
+
+    } catch(ex) {
+      console.error(ex);
+
+      window.alert("Something went wrong :(");
+    }
+    
   };
 
   return (
@@ -214,6 +207,7 @@ export function CallManager() {
             action="/send"
             method="post"
             id="call_manager-form"
+            onSubmit={sendEmail}
           >
             <div className="call_manager-form-container">
               {makeFormField(formFields[0])}

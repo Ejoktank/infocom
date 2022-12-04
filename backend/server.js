@@ -36,8 +36,23 @@ function createMailer() {
 createMailer().then((transporter) => {
 
   app.use(bodyParser.json());
-  app.get('/', (_, res) => res.send("Online!"));
+  app.use(express.static(path.resolve(__dirname, '..', 'frontend', 'build')));
+  app.get('/*', (req, res) => {
+    res.sendFile(path.resolve(__dirname, '..', 'frontend', 'build', 'index.html'));
+  });
   app.post('/send', (req, res) => {
+
+    if (!req.body) {
+      return res.sendStatus(400);
+    }
+
+    if (!req.body.subject || typeof req.body.subject !== 'string') {
+      return res.sendStatus(400);
+    }
+
+    if (!req.body.text || typeof req.body.text !== 'string') {
+      return res.sendStatus(400);
+    }
 
     //TODO: a lot of validations here
     // 
@@ -54,18 +69,15 @@ createMailer().then((transporter) => {
       text: req.body.text,
     };
 
-    console.log(JSONStringify(req.body));
-
-    // if (req.body.text) {
-    //   transporter.sendMail(mail, (err) => {
-    //     if (err) {
-    //       console.error(err);
-    //       return res.sendStatus(500);
-    //     }
-    //     res.sendStatus(200);
-    //   });
-    // }
+    transporter.sendMail(mail, (err) => {
+      if (err) {
+        console.error(err);
+        return res.sendStatus(500);
+      }
+      res.json({ ok : true });
+    });
   });
-  app.listen(5000, () => console.log("Server Running"));
+
+  app.listen(process.env.PORT || 5838, () => console.log("Server Running"));
 
 });
