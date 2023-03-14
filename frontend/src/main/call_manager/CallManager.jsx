@@ -67,6 +67,8 @@ const services = [
   "Lorem ipsum",
 ];
 
+let interestingProduct = '';
+
 export function CallManager() {
   function makeFormField(formField) {
     return (
@@ -93,6 +95,10 @@ export function CallManager() {
           type="radio"
           name="call_manager-radio"
           id={`product-check-${i}`}
+          onInput={() => {
+            interestingProduct = product.name
+            console.log(interestingProduct);
+          }}
         />
         <svg
           className="checkbox small_card-checkbox"
@@ -120,6 +126,10 @@ export function CallManager() {
           type="radio"
           name="call_manager-radio"
           id={`service-check-${i}`}
+          onInput={() => {
+            interestingProduct = service
+            console.log(interestingProduct);
+          }}
         />
         <svg
           className="checkbox"
@@ -134,7 +144,6 @@ export function CallManager() {
   }
 
   async function sendEmail(e) {
-    
     e.preventDefault();
 
     const email = document.getElementById("form-email").value;
@@ -145,17 +154,10 @@ export function CallManager() {
     const phone = document.getElementById("form-phone").value;
     const country = document.getElementById("form-country").value;
     const textArea = document.getElementById("form-textarea").value;
-    let radioChoice = null;
-
-    for (let radio of document.getElementsByClassName("call_manager-radio")) {
-      if (radio.isChecked) {
-        radioChoice = radio;
-      }
-    }
 
     const object = {
       subject: `New order from ${name} ${lastName} [${company} - ${position}]`,
-      text: `${textArea}\n\n-- ${name} ${lastName}\n-- ${company}\n-- ${position}\n-- ${phone}\n-- ${email}\n-- ${country}\n`,
+      text: `${interestingProduct}\n${textArea}\n\n-- ${name} ${lastName}\n-- ${company}\n-- ${position}\n-- ${phone}\n-- ${email}\n-- ${country}\n`,
     };
 
     try {
@@ -169,14 +171,20 @@ export function CallManager() {
 
       const content = await rawResponse.json();
       console.log(content);
-
-    } catch(ex) {
+    } catch (ex) {
       console.error(ex);
 
+      console.log(object);
       window.alert("Something went wrong :(");
+      return
     }
-    
-  };
+
+    document.querySelector('.call_manager-hero').innerHTML = `
+      <h1 className="section-header product-header">
+        Спасибо за заявку, менеджер свяжется с вами в ближайшее время :)
+      </h1>
+    `
+  }
 
   return (
     <section className="section-call_manager">

@@ -54,12 +54,8 @@ createMailer().then((transporter) => {
       return res.sendStatus(400);
     }
 
-    //TODO: a lot of validations here
+    //TODO: 
     // 
-    // 1. Does subject exists
-    // 2. Does text exists
-    // 3. Is subject valid string
-    // 4. Is text valid string
     // 5. Injections ???
 
     const mail = {
